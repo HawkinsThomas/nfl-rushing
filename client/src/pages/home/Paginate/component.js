@@ -3,7 +3,8 @@ import ReactPaginate from 'react-paginate';
 import { StyledPaginateWrapper } from './styledComponents';
 
 
-export const Paginate = ({numberOfResults, resultsPerPage, onPageChange}) => {
+export const Paginate = ({numberOfResults, resultsPerPage, setPage, currentPage}) => {
+  console.log(currentPage);
   return (
     <StyledPaginateWrapper>
       <ReactPaginate
@@ -13,8 +14,9 @@ export const Paginate = ({numberOfResults, resultsPerPage, onPageChange}) => {
         pageCount={Math.ceil(numberOfResults/resultsPerPage)}
         marginPagesDisplayed={1}
         pageRangeDisplayed={3}
-        onPageChange={(page) => {onPageChange(page.selected, resultsPerPage)}}
+        onPageChange={(page) => {setPage(page.selected)}}
         containerClassName={'pagination'}
+        initialPage={currentPage}
       />
     </StyledPaginateWrapper>
   );

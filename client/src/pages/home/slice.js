@@ -4,22 +4,27 @@ import { fetchPlayerData } from './actions';
 export const initialState = {
   loadingResults: false,
   playerData: null,
-  numberOfResults: 1001,
-  resultsPerPage: 10,
+  numberOfResults: 0,
+  resultsPerPage: 20,
+  currentPage: 0,
 };
 
 const homeSlice = createSlice({
   name: 'home',
   initialState,
-  reducers: {},
+  reducers: {
+    setPage(state, action) {
+      state.currentPage = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchPlayerData.pending, (state) => {
         state.loadingResults = true;
       })
       .addCase(fetchPlayerData.fulfilled, (state, action) => {
-        console.log(action.payload);
-        state.playerData = action.payload;
+        state.playerData = action.payload.data;
+        state.numberOfResults = action.payload.numberOfResults;
         state.loadingResults = false;
       })
       .addCase(fetchPlayerData.rejected, (state) => {
@@ -29,4 +34,5 @@ const homeSlice = createSlice({
   },
 });
 
+export const { setPage } = homeSlice.actions;
 export default homeSlice.reducer;

@@ -10,15 +10,18 @@ const HomePage = ({
     fetchPlayerData,
     resultsPerPage,
     numberOfResults,
+    currentPage,
   }) => {
   useEffect(() => {
-    if (!playerData && !loadingResults) fetchPlayerData();
-  }, [playerData]);
+    if (!loadingResults) {
+      const queryParams = {
+        startIndex: currentPage * resultsPerPage,
+        numberOfRows: resultsPerPage,
+      }
+      fetchPlayerData(queryParams);
+    }
+  }, [currentPage, resultsPerPage]);
 
-  const onPageChange = (pageNumber, resultsPerPage) => {
-    console.log(`fetching results ${pageNumber * resultsPerPage} to ${pageNumber * resultsPerPage + resultsPerPage}`)
-    // fetchPlayerData()
-  }
 
   return (
     <div>
@@ -28,7 +31,6 @@ const HomePage = ({
           <Paginate
             resultsPerPage={resultsPerPage}
             numberOfResults={numberOfResults}
-            onPageChange={onPageChange}
           />
       }
     </div>

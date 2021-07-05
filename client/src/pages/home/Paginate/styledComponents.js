@@ -33,6 +33,9 @@ export const StyledPaginateWrapper = styled.div`
     text-decoration: none;
     color: #337ab7;
     font-size: 20px;
+    text-align: center;
+    width: 100%;
+    height: 100%;
   }
 
   ul.pagination li.selected a {
