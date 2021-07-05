@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { HomePageReducer } from './pages/home/reducer';
+import homeReducer from './pages/home/slice';
 
 
 const rootReducer = combineReducers({
-  home: HomePageReducer,
+  home: homeReducer,
 });
 
 export default rootReducer;

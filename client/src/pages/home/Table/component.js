@@ -7,7 +7,7 @@ export const Table = ({ headers, data }) => {
     <div>
       <Row values={headers} isHeader={true} />
       {
-        data && data.map(generateRow)
+       data && data.map(generateRow)
       }
     </div>
   );

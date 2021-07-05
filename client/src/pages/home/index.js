@@ -1,4 +1,10 @@
+import { connect } from 'react-redux';
 import HomePage from './component';
+import {
+  mapStateToProps,
+  mapDispatchToProps,
+} from './redux';
 
 
-export default HomePage;
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+
