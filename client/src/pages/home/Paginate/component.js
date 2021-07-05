@@ -13,7 +13,7 @@ export const Paginate = ({numberOfResults, resultsPerPage, setPage, currentPage}
         breakLabel={'...'}
         pageCount={Math.ceil(numberOfResults/resultsPerPage)}
         marginPagesDisplayed={1}
-        pageRangeDisplayed={3}
+        pageRangeDisplayed={5}
         onPageChange={(page) => {setPage(page.selected)}}
         containerClassName={'pagination'}
         initialPage={currentPage}
