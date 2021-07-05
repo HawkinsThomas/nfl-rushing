@@ -1,14 +1,15 @@
 import React from 'react';
 import Row from './Row'
+import Spinner from './Spinner';
 
-export const Table = ({ headers, data }) => {
+
+export const Table = ({ headers, data, loadingResults }) => {
   const generateRow = (rowData, index) => <Row values={rowData} isHeader={false} key={index} />
   return (
     <div>
       <Row values={headers} isHeader={true} />
-      {
-       data && data.map(generateRow)
-      }
+        {loadingResults && <Spinner />}
+        {!loadingResults && data && data.map(generateRow)}
     </div>
   );
 }

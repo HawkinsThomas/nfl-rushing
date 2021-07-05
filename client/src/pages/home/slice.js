@@ -4,6 +4,8 @@ import { fetchPlayerData } from './actions';
 export const initialState = {
   loadingResults: false,
   playerData: null,
+  numberOfResults: 1001,
+  resultsPerPage: 10,
 };
 
 const homeSlice = createSlice({
