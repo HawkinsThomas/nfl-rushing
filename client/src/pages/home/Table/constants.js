@@ -9,6 +9,7 @@ export const HEADERS = [
   'Yds/G',
   'TD',
   'Lng',
+  'LngTD',
   '1st',
   '1st%',
   '20+',

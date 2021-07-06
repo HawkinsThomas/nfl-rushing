@@ -4,7 +4,6 @@ import { StyledCell } from './styledComponents';
 
 
 export const Cell = ({ value, isHeader, className, setInverted, setSortKey, sortKey, invertedSort }) => {
-  console.log(setSortKey);
   let onClick = () => {};
   if (isHeader && SORTABLE.includes(value)) {
     onClick = () => {

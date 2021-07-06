@@ -4,8 +4,6 @@ const fs = require('fs');
 // Need to be able to sort by Yds, Lng and TD, so they have to be numbers.
 // T denotes a touchdown in Lng. Need to parse this out and save to binary value
 
-const sampleData = JSON.parse(fs.readFileSync('helpers/rushing.json', 'utf8')).rushingYardData;
-
 const parseForTD = (lng) => {
   if (typeof(lng) === 'string' && lng.includes('T')) return ({
     lng: parseInt(lng.replace(/T/g, '')),
@@ -18,7 +16,7 @@ const parseForTD = (lng) => {
   });
 }
 
-const massageData = (data = sampleData) => {
+const massageData = (data) => {
   const massagedData = data.map((row) => {
     if (typeof(row['Yds']) === 'string') row['Yds'] = parseInt(row['Yds']);
     if (typeof(row['TD']) === 'string') row['TD'] = parseInt(row['TD']);

@@ -2,7 +2,6 @@ const SERVER = 'http://localhost:9000';
 
 const rushingYardData = {
   get: (startIndex, numberOfRows, sortKey, inverted) => {
-    console.log(startIndex);
     const baseUrl = `${SERVER}/rushingYardData/?`;
     const startIndexString = `${startIndex}` ? `startIndex=${startIndex}` : '';
     const numberOfRowsString = `${numberOfRows}` ? `&numberOfRows=${numberOfRows}` : '';

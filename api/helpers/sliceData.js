@@ -1,9 +1,12 @@
 const { massageData } = require('./massageData');
+const fs = require('fs');
 
+let sampleData = JSON.parse(fs.readFileSync('helpers/rushing.json', {encoding:'utf8', flag:'r'})).rushingYardData;
+sampleData = massageData(sampleData);
 
 const sliceData = ({ data, index, numberOfRows, sortKey, inverted}) => {
   if (!data) {
-    data = massageData(); // fake database
+    data = sampleData; // fake database
   }
 
   if (sortKey) {

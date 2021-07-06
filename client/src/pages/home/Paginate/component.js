@@ -4,7 +4,6 @@ import { StyledPaginateWrapper } from './styledComponents';
 
 
 export const Paginate = ({numberOfResults, resultsPerPage, setPage, currentPage}) => {
-  console.log(currentPage);
   return (
     <StyledPaginateWrapper>
       <ReactPaginate
