@@ -4,6 +4,8 @@ import { fetchPlayerData } from './actions';
 export const initialState = {
   loadingResults: false,
   playerData: null,
+  sortKey: null,
+  invertedSort: false,
   numberOfResults: 0,
   resultsPerPage: 20,
   currentPage: 0,
@@ -15,7 +17,13 @@ const homeSlice = createSlice({
   reducers: {
     setPage(state, action) {
       state.currentPage = action.payload;
-    }
+    },
+    setInverted(state, action) {
+      state.invertedSort = action.payload;
+    },
+    setSortKey(state, action) {
+      state.sortKey = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -34,5 +42,5 @@ const homeSlice = createSlice({
   },
 });
 
-export const { setPage } = homeSlice.actions;
+export const { setPage, setInverted, setSortKey } = homeSlice.actions;
 export default homeSlice.reducer;

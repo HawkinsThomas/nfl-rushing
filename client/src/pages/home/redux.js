@@ -7,6 +7,8 @@ export const mapStateToProps = (state) => ({
   resultsPerPage: state.home.resultsPerPage,
   numberOfResults: state.home.numberOfResults,
   currentPage: state.home.currentPage,
+  sortKey: state.home.sortKey,
+  inverted: state.home.invertedSort,
 });
 
 export const mapDispatchToProps = {

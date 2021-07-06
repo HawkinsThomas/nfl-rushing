@@ -1,12 +1,17 @@
 const express = require('express');
-const readRushingYardData = require('../helpers/readFromJson.js');
+const sliceData = require('../helpers/sliceData');
 
 
 const rushingYardDataRouter = express.Router();
 
-rushingYardDataRouter.get('/:startIndex/:numberOfRows', (req, res, next) =>  {
-  const { startIndex, numberOfRows } = req.params;
-  res.json(readRushingYardData(parseInt(startIndex), parseInt(numberOfRows)));
+rushingYardDataRouter.get('/', (req, res, next) =>  {
+  const { startIndex, numberOfRows, sortKey, inverted } = req.query;
+  res.json(sliceData({
+    index: parseInt(startIndex),
+    numberOfRows: parseInt(numberOfRows),
+    sortKey,
+    inverted: !!parseInt(inverted)
+  }));
 });
 
 module.exports = rushingYardDataRouter;

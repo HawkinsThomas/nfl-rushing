@@ -15,3 +15,16 @@ export const HEADERS = [
   '40+',
   'FUM',
 ]
+
+export const SORTABLE = [
+  'Yds',
+  'TD',
+  'Lng',
+  'Att/G',
+  'Att',
+  'Avg',
+  'Yds/G',
+  'FUM',
+  '1st',
+  '1st%',
+];
