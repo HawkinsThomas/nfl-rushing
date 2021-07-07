@@ -54,4 +54,7 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+1. clone this repo
+2. navigate to project root directory
+3. run docker-compose up
+4. Navigate to http://localhost:3000 in your browser
