@@ -1,6 +1,3 @@
-const fs = require('fs');
-
-
 // Need to be able to sort by Yds, Lng and TD, so they have to be numbers.
 // T denotes a touchdown in Lng. Need to parse this out and save to binary value
 
