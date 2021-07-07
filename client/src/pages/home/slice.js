@@ -9,6 +9,7 @@ export const initialState = {
   numberOfResults: 0,
   resultsPerPage: 20,
   currentPage: 0,
+  playerFilter: '',
 };
 
 const homeSlice = createSlice({
@@ -23,6 +24,9 @@ const homeSlice = createSlice({
     },
     setSortKey(state, action) {
       state.sortKey = action.payload;
+    },
+    setPlayerFilter(state, action) {
+      state.playerFilter = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -42,5 +46,5 @@ const homeSlice = createSlice({
   },
 });
 
-export const { setPage, setInverted, setSortKey } = homeSlice.actions;
+export const { setPage, setInverted, setSortKey, setPlayerFilter } = homeSlice.actions;
 export default homeSlice.reducer;

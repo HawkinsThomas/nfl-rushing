@@ -7,4 +7,3 @@ import {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
-

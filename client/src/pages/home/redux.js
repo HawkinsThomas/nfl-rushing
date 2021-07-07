@@ -1,4 +1,5 @@
 import { fetchPlayerData } from './actions';
+import { setPlayerFilter } from './slice';
 
 
 export const mapStateToProps = (state) => ({
@@ -9,8 +10,10 @@ export const mapStateToProps = (state) => ({
   currentPage: state.home.currentPage,
   sortKey: state.home.sortKey,
   inverted: state.home.invertedSort,
+  playerFilter: state.home.playerFilter,
 });
 
 export const mapDispatchToProps = {
   fetchPlayerData,
+  setPlayerFilter,
 };

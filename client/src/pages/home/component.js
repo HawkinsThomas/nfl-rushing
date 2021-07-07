@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Paginate from './Paginate';
 import Table from './Table';
+import PlayerFilter from './PlayerFilter';
 import { HEADERS } from './Table/constants';
 
 
@@ -13,6 +14,8 @@ const HomePage = ({
     currentPage,
     sortKey,
     inverted,
+    playerFilter,
+    setPlayerFilter,
   }) => {
     useEffect(() => {
     if (!loadingResults) {
@@ -21,14 +24,16 @@ const HomePage = ({
         numberOfRows: resultsPerPage,
         sortKey,
         inverted,
+        playerFilter,
       }
       fetchPlayerData(queryParams);
     }
-  }, [currentPage, resultsPerPage, sortKey, inverted]);
+  }, [currentPage, resultsPerPage, sortKey, inverted, playerFilter]);
 
 
   return (
     <div>
+      <PlayerFilter value={playerFilter} onChange={setPlayerFilter} />
       <Table headers={HEADERS} data={playerData} loadingResults={loadingResults} />
       {
         playerData && !loadingResults &&
