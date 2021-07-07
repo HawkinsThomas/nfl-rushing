@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Paginate from './Paginate';
 import Table from './Table';
 import PlayerFilter from './PlayerFilter';
+import DownloadButton from './DownloadButton';
 import { HEADERS } from './Table/constants';
 
 
@@ -42,6 +43,13 @@ const HomePage = ({
             numberOfResults={numberOfResults}
           />
       }
+      <DownloadButton queryParams={{
+          startIndex: currentPage * resultsPerPage,
+          numberOfRows: resultsPerPage,
+          sortKey,
+          inverted,
+          playerFilter,
+        }}/>
     </div>
   );
 }

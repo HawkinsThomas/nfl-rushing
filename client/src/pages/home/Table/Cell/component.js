@@ -20,7 +20,7 @@ export const Cell = ({ value, isHeader, className, setInverted, setSortKey, sort
       className={`${className} ${isHeader ? 'header' : 'data'} ${className === sortKey ? 'sorted' : ''}`}
       onClick={onClick}
     >
-      {value + `${value === sortKey ? invertedSort ? ' ^' : ' v' : ''}`}
+      {value + `${value === sortKey ? invertedSort ? ' ⋀' : ' ⋁' : ''}`}
     </StyledCell>
   );
 }

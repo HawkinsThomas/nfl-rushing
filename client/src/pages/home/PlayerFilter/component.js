@@ -4,7 +4,7 @@ import { StyledPlayerFilter } from './styledComponents';
 
 export const PlayerFilter = ({ value, onChange }) => (
     <StyledPlayerFilter>
-      <label for="name">Search For Player: </label>
+      <label for="name">Filter Players: </label>
       <input
         type="text"
         id="name"

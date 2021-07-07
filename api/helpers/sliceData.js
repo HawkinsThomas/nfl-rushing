@@ -4,7 +4,7 @@ const fs = require('fs');
 let sampleData = JSON.parse(fs.readFileSync('helpers/rushing.json', {encoding:'utf8', flag:'r'})).rushingYardData;
 sampleData = massageData(sampleData);
 
-const sliceData = ({ data, index, numberOfRows, sortKey, inverted, filter}) => {
+const sliceData = ({ data, index, numberOfRows, sortKey, inverted, filter, all}) => {
   if (!data) {
     data = sampleData; // fake database
   }
@@ -20,7 +20,7 @@ const sliceData = ({ data, index, numberOfRows, sortKey, inverted, filter}) => {
   }
 
   return ({
-    data: data.slice(index, index + numberOfRows),
+    data: all ? data : data.slice(index, index + numberOfRows),
     numberOfResults: data.length,
   });
 };

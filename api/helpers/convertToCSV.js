@@ -4,7 +4,7 @@ const HEADERS = require('./constants');
 const convertRowToRecord = (row) => {
   let record = '';
   HEADERS.forEach((key) => {
-    if (row[key]) record += `${row[key]},`;
+    if (row[key] !== undefined) record += `${row[key]},`;
     else record += ','
   });
   return record.slice(0, -1) + '\n' // remove the last comma and add a newline

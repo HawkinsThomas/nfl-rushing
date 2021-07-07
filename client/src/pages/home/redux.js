@@ -1,4 +1,4 @@
-import { fetchPlayerData } from './actions';
+import { fetchPlayerData, downloadPlayerData } from './actions';
 import { setPlayerFilter } from './slice';
 
 
