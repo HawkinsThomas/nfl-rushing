@@ -53,6 +53,12 @@ We will evaluate you on your ability to solve the problem defined in the require
 ### Help
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
+### Known Issue
+A known issue with my approach is that the whole "database" file is loaded into the server memory.
+This could cause issues if the number of records grows to 10k or greater.
+
+The obvious solution is to implement a database and query it for only the requested rows.
+
 ### Installation and running this solution
 1. clone this repo
 2. navigate to project root directory
