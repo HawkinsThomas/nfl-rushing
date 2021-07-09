@@ -6,7 +6,7 @@ const rushingYardData = {
     const route = '/rushingYardData/';
     const url = createUrl(route, startIndex, numberOfRows, sortKey, inverted, playerFilter);
 
-    return fetch(url)
+    return fetch(url);
   },
 };
 

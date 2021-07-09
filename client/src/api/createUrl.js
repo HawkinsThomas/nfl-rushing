@@ -8,5 +8,5 @@ export const createUrl = (route, startIndex, numberOfRows, sortKey, inverted, pl
   const invertedString = `${inverted}` ? `&inverted=${inverted ? 1 : 0}` : '';
   const filter = `${playerFilter}` ? `&filter=${playerFilter}` : '';
 
-  return `${baseUrl}${startIndexString}${numberOfRowsString}${sortKeyString}${invertedString}${filter}`
-}
+  return `${baseUrl}${startIndexString}${numberOfRowsString}${sortKeyString}${invertedString}${filter}`;
+};

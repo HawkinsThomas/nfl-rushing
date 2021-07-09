@@ -5,4 +5,5 @@ import {
   mapDispatchToProps,
 } from './redux';
 
+
 export default connect(mapStateToProps, mapDispatchToProps)(Cell);

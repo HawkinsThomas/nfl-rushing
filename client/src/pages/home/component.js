@@ -7,18 +7,18 @@ import { HEADERS } from './Table/constants';
 
 
 const HomePage = ({
-    playerData,
-    loadingResults,
-    fetchPlayerData,
-    resultsPerPage,
-    numberOfResults,
-    currentPage,
-    sortKey,
-    inverted,
-    playerFilter,
-    setPlayerFilter,
-  }) => {
-    useEffect(() => {
+  playerData,
+  loadingResults,
+  fetchPlayerData,
+  resultsPerPage,
+  numberOfResults,
+  currentPage,
+  sortKey,
+  inverted,
+  playerFilter,
+  setPlayerFilter,
+}) => {
+  useEffect(() => {
     if (!loadingResults) {
       const queryParams = {
         startIndex: currentPage * resultsPerPage,
@@ -26,7 +26,7 @@ const HomePage = ({
         sortKey,
         inverted,
         playerFilter,
-      }
+      };
       fetchPlayerData(queryParams);
     }
   }, [currentPage, resultsPerPage, sortKey, inverted, playerFilter]);
@@ -37,21 +37,23 @@ const HomePage = ({
       <PlayerFilter value={playerFilter} onChange={setPlayerFilter} />
       <Table headers={HEADERS} data={playerData} loadingResults={loadingResults} />
       {
-        playerData && !loadingResults &&
+        playerData && !loadingResults && (
           <Paginate
             resultsPerPage={resultsPerPage}
             numberOfResults={numberOfResults}
           />
+        )
       }
       <DownloadButton queryParams={{
-          startIndex: currentPage * resultsPerPage,
-          numberOfRows: resultsPerPage,
-          sortKey,
-          inverted,
-          playerFilter,
-        }}/>
+        startIndex: currentPage * resultsPerPage,
+        numberOfRows: resultsPerPage,
+        sortKey,
+        inverted,
+        playerFilter,
+      }}
+      />
     </div>
   );
-}
+};
 
 export default HomePage;

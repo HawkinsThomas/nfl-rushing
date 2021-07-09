@@ -15,7 +15,7 @@ export const HEADERS = [
   '20+',
   '40+',
   'FUM',
-]
+];
 
 export const SORTABLE = [
   'Yds',

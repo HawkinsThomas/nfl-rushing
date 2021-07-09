@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchPlayerData } from './actions';
 
+
 export const initialState = {
   loadingResults: false,
   playerData: null,
@@ -46,5 +47,7 @@ const homeSlice = createSlice({
   },
 });
 
-export const { setPage, setInverted, setSortKey, setPlayerFilter } = homeSlice.actions;
+export const {
+  setPage, setInverted, setSortKey, setPlayerFilter,
+} = homeSlice.actions;
 export default homeSlice.reducer;

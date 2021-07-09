@@ -3,8 +3,9 @@ import { StyledPlayerFilter } from './styledComponents';
 
 
 export const PlayerFilter = ({ value, onChange }) => (
-    <StyledPlayerFilter>
-      <label for="name">Filter Players: </label>
+  <StyledPlayerFilter>
+    <label htmlFor="name">
+      Filter Players:
       <input
         type="text"
         id="name"
@@ -13,5 +14,6 @@ export const PlayerFilter = ({ value, onChange }) => (
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />
-    </StyledPlayerFilter>
+    </label>
+  </StyledPlayerFilter>
 );
