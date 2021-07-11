@@ -25,5 +25,5 @@ const test = () => {
 connect();
 
 const sampleData = JSON.parse(fs.readFileSync('./rushing.json', {encoding:'utf8', flag:'r'})).rushingYardData;
-// seed(massageData(sampleData));
-test();
+seed(massageData(sampleData));
+// test();
