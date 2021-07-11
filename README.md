@@ -56,6 +56,7 @@ If you have any questions regarding requirements, do not hesitate to email your 
 ### Installation and running this solution
 1. clone this repo
 2. navigate to project root directory
-3. run docker-compose up
-4. exec into api container and run node /app/db/seed/seed.js
-5. Navigate to http://localhost:3000 in your browser
+3. run `docker-compose up`
+4. exec into api container `docker exec -it api bash`
+5. run `node /app/db/seed/seed.js`
+6. Navigate to http://localhost:3000 in your browser
