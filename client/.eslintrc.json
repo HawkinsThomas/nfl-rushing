@@ -21,6 +21,7 @@
     "import/extensions": "off",
     "no-unused-expressions": ["warn", { "allowTernary": true }],
     "linebreak-style": "off",
-    "no-param-reassign": "off"
+    "no-param-reassign": "off",
+    "object-curly-newline": "off"
   }
 }

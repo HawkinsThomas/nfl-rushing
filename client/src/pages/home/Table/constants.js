@@ -18,14 +18,18 @@ export const HEADERS = [
 ];
 
 export const SORTABLE = [
-  'Yds',
-  'TD',
-  'Lng',
+  'Player',
+  'Team',
+  'Pos',
   'Att/G',
   'Att',
+  'Yds',
   'Avg',
   'Yds/G',
-  'FUM',
+  'TD',
+  'Lng',
+  'LngTD',
   '1st',
   '1st%',
+  'FUM',
 ];
