@@ -56,7 +56,7 @@ If you have any questions regarding requirements, do not hesitate to email your 
 ### Installation and running this solution
 1. clone this repo
 2. navigate to project root directory
-3. create a .env file with the following fields
+3. create a .env file in the root dir with the following fields
 ```bash
 MONGO_USERNAME={username}
 MONGO_PASSWORD={password}
@@ -64,6 +64,6 @@ MONGO_PORT=27017
 MONGO_DB=nfl-rushing
 ```
 4. run `docker-compose up`
-5. exec into api container `docker exec -it api bash`
-6. run `node /app/db/seed/seed.js`
-7. Navigate to http://localhost:3000 in your browser
+5. exec into api container `docker exec --workdir /app/db/seed/ -it api bash`
+7. run `node seed.js`
+8. Navigate to http://localhost:3000 in your browser

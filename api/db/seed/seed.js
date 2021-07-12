@@ -6,6 +6,7 @@ const connect = require('../config/database.config');
 
 const seed = (sampleData) => {
   sampleData.forEach((row) => RushingController.create(row).then(() => console.log('...')));
+  process.exit();
 };
 
 const test = () => {
