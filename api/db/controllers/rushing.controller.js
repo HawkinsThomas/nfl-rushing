@@ -25,14 +25,26 @@ const findSortSlice = ({ index, numberOfRows, sortKey, inverted, filter, all }) 
     Rushing.find(
       filter ? { Player: { $regex: filter, $options: 'i' } } : {},
       null,
-      { sort: { [sortKey]: inverted ? 1 : -1 }},
+      { sort: { [sortKey]: inverted ? 1 : -1 }, skip: index, limit: numberOfRows},
       (err, result) => {
         if (err) reject(err);
         if (all) resolve(result);
-        resolve({ data: result.slice(index, index + numberOfRows), numberOfResults: result.length });
+        resolve({ data: result });
       }
     ).exec();
   });
 }
 
-module.exports = { create, findSortSlice };
+const count = (filter) => {
+  return new Promise((resolve, reject) => {
+    Rushing.countDocuments(
+      filter ? { Player: { $regex: filter, $options: 'i' } } : {},
+      (err, count) => {
+        if (err) reject(err);
+        resolve(count);;
+      }
+    );
+  });
+}
+
+module.exports = { create, findSortSlice, count };

@@ -5,8 +5,10 @@ const RushingController = require('../db/controllers/rushing.controller');
 
 const rushingYardDataRouter = express.Router();
 
-rushingYardDataRouter.get('/', (req, res, next) =>  {
+rushingYardDataRouter.get('/', async function(req, res){
   const { startIndex, numberOfRows, sortKey, inverted, filter } = req.query;
+  const count = await RushingController.count(filter);
+
   return RushingController.findSortSlice({
     index: parseInt(startIndex),
     numberOfRows: parseInt(numberOfRows),
@@ -14,10 +16,10 @@ rushingYardDataRouter.get('/', (req, res, next) =>  {
     inverted: !!parseInt(inverted),
     filter,
     all: false
-  }).then(data => res.json(data));
+  }).then(data => res.json({ ...data, numberOfRecords: count }));
 });
 
-rushingYardDataRouter.get('/download/', (req, res, next) =>  {
+rushingYardDataRouter.get('/download/', (req, res) =>  {
   const { startIndex, numberOfRows, sortKey, inverted, filter } = req.query;
   return RushingController.findSortSlice({
     index: parseInt(startIndex),

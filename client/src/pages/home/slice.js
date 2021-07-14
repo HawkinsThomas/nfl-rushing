@@ -38,7 +38,7 @@ const homeSlice = createSlice({
       })
       .addCase(fetchPlayerData.fulfilled, (state, action) => {
         state.playerData = action.payload.data;
-        state.numberOfResults = action.payload.numberOfResults;
+        state.numberOfResults = action.payload.numberOfRecords;
         state.loadingResults = false;
       })
       .addCase(fetchPlayerData.rejected, (state) => {
