@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchPlayerData } from './actions';
+import { addT } from './addT';
 
 
 export const initialState = {
@@ -37,7 +38,7 @@ const homeSlice = createSlice({
         state.loadingResults = true;
       })
       .addCase(fetchPlayerData.fulfilled, (state, action) => {
-        state.playerData = action.payload.data;
+        state.playerData = addT(action.payload.data);
         state.numberOfResults = action.payload.numberOfRecords;
         state.loadingResults = false;
       })

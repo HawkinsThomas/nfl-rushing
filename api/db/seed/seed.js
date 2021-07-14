@@ -18,7 +18,7 @@ const test = () => {
     all: false,
   }).then((result) => {
     console.log(result)
-    process.exit();
+
   }).catch(e => console.log(e));
 }
 
