@@ -16,7 +16,6 @@ const create = (rushingYardRow) => {
       if (!result) {
         const row = new Rushing(rushingYardRow);
         row.save();
-        console.log('...')
       } else console.log('player already in database')
     }).catch((e) => {console.log(e)});
 }

@@ -5,7 +5,11 @@ const connect = require('../config/database.config');
 
 
 const seed = (sampleData) => {
-  sampleData.forEach((row) => RushingController.create(row).then(() => console.log('...')));
+  Promise.all(sampleData.map((row) => RushingController.create(row)))
+    .then(() => {
+      console.log(`seeded ${sampleData.length} rows`);
+    })
+    .catch(() => process.exit());
 };
 
 const test = () => {
