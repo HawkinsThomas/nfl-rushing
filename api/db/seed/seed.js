@@ -30,5 +30,5 @@ const count = async function(){
 connect();
 
 const sampleData = JSON.parse(fs.readFileSync('./rushing.json', {encoding:'utf8', flag:'r'})).rushingYardData;
-// seed(massageData(sampleData));
-count();
+seed(massageData(sampleData));
+// count();

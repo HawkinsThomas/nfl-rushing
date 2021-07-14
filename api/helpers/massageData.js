@@ -15,7 +15,10 @@ const parseForTD = (lng) => {
 
 const massageData = (data) => {
   const massagedData = data.map((row) => {
-    if (typeof(row['Yds']) === 'string') row['Yds'] = parseInt(row['Yds']);
+    if (typeof(row['Yds']) === 'string') {
+      row['Yds'] = row['Yds'].replace(/,/g, '');
+      row['Yds'] = parseInt(row['Yds']);
+    }
     if (typeof(row['TD']) === 'string') row['TD'] = parseInt(row['TD']);
 
     const { lng, lngTD } = parseForTD(row['Lng']);
