@@ -6,21 +6,23 @@ const RushingController = require('../db/controllers/rushing.controller');
 const rushingYardDataRouter = express.Router();
 
 rushingYardDataRouter.get('/', async function(req, res){
-  const { startIndex, numberOfRows, sortKey, inverted, filter } = req.query;
+  let { startIndex, numberOfRows, sortKey, inverted, filter } = req.query;
+  filter = filter.replace(/[\\\.\+\*\?\^\$\[\]\(\)\{\}\/\'\#\:\!\=\|]/ig, "\\$&");
   const count = await RushingController.count(filter);
 
   return RushingController.findSortSlice({
     index: parseInt(startIndex),
     numberOfRows: parseInt(numberOfRows),
-    sortKey,
+    sortKey: sortKey || '',
     inverted: !!parseInt(inverted),
-    filter,
+    filter: filter || '',
     all: false
   }).then(data => res.json({ ...data, numberOfRecords: count }));
 });
 
 rushingYardDataRouter.get('/download/', (req, res) =>  {
   const { startIndex, numberOfRows, sortKey, inverted, filter } = req.query;
+  console.log(filter);
   return RushingController.findSortSlice({
     index: parseInt(startIndex),
     numberOfRows: parseInt(numberOfRows),

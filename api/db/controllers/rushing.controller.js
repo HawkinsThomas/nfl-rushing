@@ -16,16 +16,18 @@ const create = (rushingYardRow) => {
       if (!result) {
         const row = new Rushing(rushingYardRow);
         row.save();
+        console.log('...')
       } else console.log('player already in database')
     }).catch((e) => {console.log(e)});
 }
 
 const findSortSlice = ({ index, numberOfRows, sortKey, inverted, filter, all }) => {
   return new Promise((resolve, reject) => {
+    const sort = sortKey ? { sort: { [sortKey]: inverted ? 1 : -1 } } : {};
     Rushing.find(
       filter ? { Player: { $regex: filter, $options: 'i' } } : {},
       null,
-      { sort: { [sortKey]: inverted ? 1 : -1 }, skip: index, limit: numberOfRows},
+      { ...sort, skip: index, limit: numberOfRows},
       (err, result) => {
         if (err) reject(err);
         if (all) resolve(result);
