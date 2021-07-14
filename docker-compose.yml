@@ -35,6 +35,9 @@ services:
       - "api:be"
     networks:
       - nfl-app-network
+    volumes:
+      - ./client:/app/
+      - client-nodemodules:/app/node_modules
 
   mongo:
     image: mongo
@@ -60,4 +63,5 @@ networks:
     driver: bridge
 volumes:
   nodemodules:
+  client-nodemodules:
   dbdata:

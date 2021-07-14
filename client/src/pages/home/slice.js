@@ -28,6 +28,7 @@ const homeSlice = createSlice({
     },
     setPlayerFilter(state, action) {
       state.playerFilter = action.payload;
+      state.currentPage = 0;
     },
   },
   extraReducers: (builder) => {
