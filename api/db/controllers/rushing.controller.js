@@ -23,10 +23,11 @@ const create = (rushingYardRow) => {
 const findSortSlice = ({ index, numberOfRows, sortKey, inverted, filter, all }) => {
   return new Promise((resolve, reject) => {
     const sort = sortKey ? { sort: { [sortKey]: inverted ? 1 : -1 } } : {};
+    const skip = all ? {} : { skip: index, limit: numberOfRows };
     Rushing.find(
       filter ? { Player: { $regex: filter, $options: 'i' } } : {},
       null,
-      { ...sort, skip: index, limit: numberOfRows},
+      { ...sort, ...skip },
       (err, result) => {
         if (err) reject(err);
         if (all) resolve(result);
